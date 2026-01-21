@@ -15,11 +15,18 @@ bill: float = 0
 width: int = 20
 prompt: str = "Please enter the total of a dinner bill"
 error: str ="Invalid total"
-print(f"|{prompt:{width}}|")
+tip_15: float = 0
+tip_20: float = 0
+
+print(f"{prompt:{width}}:")
 bill = float(input())
-while(bill < 0 or bill == 0):
-    print(f"|{error:{width}}|")
-    print(f"|{prompt:{width}}|")
+while(bill <= 0):
+    print(f"{error:{width}}")
+    print(f"{prompt:{width}}:")
     bill = float(input())
 
+tip_15 = bill*0.15
+tip_20 = bill*0.2
 
+print(f"15% tip: ${tip_15:.2f}")
+print(f"20% tip: ${tip_20:.2f}")
