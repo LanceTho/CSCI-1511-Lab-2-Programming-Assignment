@@ -12,24 +12,22 @@
 #Currency should be correctly displayed
 
 bill: float = 0
-width: int = 20
 prompt: str = "Please enter the total of a dinner bill (exclude the '$')"
 error: str ="Invalid total"
 tip_15: float = 0
 tip_20: float = 0
 
-print(f"{prompt:{width}}:")
+print(f"{prompt:<{20}}")
 bill = float(input())
 while(bill <= 0):
-    print(f"{error:{width}}")
-    print(f"{prompt:{width}}:")
+    print(f"{error:{20}}")
+    print(f"{prompt:{20}}")
     bill = float(input())
 
 tip_15 = bill*0.15
 tip_20 = bill*0.2
 
-print(f"15% tip: ${tip_15:.2f}")
-print(f"20% tip: ${tip_20:.2f}")
+print(f"|TOTAL: " + f"${bill:.2f}|")
 
-print(f"Here is the total bill amount with the 15% tip added: ${(bill + tip_15):.2f}")
-print(f"Here is the total bill amount with the 15% tip added: ${(bill + tip_20):.2f}")
+print(f"|15%: ${tip_15:.2f}" + f" TOTAL: " + f"${(bill + tip_15):>.2f}|")
+print(f"|15%: ${tip_20:.2f}" + f" TOTAL: " + f"${(bill + tip_20):>.2f}|")
