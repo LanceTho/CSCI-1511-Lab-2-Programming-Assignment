@@ -13,7 +13,10 @@
 
 bill: float = 0
 prompt: str = "Please enter the total of a dinner bill (exclude the '$')"
-error: str ="Invalid total"
+error: str = "Invalid total"
+recipt_total: str = "TOTAL:"
+recipt_15: str = "15%:"
+recipt_20: str = "20%:"
 tip_15: float = 0
 tip_20: float = 0
 
@@ -27,7 +30,10 @@ while(bill <= 0):
 tip_15 = bill*0.15
 tip_20 = bill*0.2
 
-print(f"|TOTAL: " + f"${bill:.2f}|")
+print(f"|{recipt_total:<{10}}" + f"${bill:.2f}|")
 
-print(f"|15%: ${tip_15:.2f}" + f" TOTAL: " + f"${(bill + tip_15):>.2f}|")
-print(f"|15%: ${tip_20:.2f}" + f" TOTAL: " + f"${(bill + tip_20):>.2f}|")
+print(f"|{recipt_15:<{11}}" + f"${tip_15:.2f}|")
+print(f"|{recipt_total:{10}}" + f"${(bill + tip_15):.2f}|")
+
+print(f"|{recipt_20:<{10}}" + f"${tip_20:.2f}|")
+print(f"|{recipt_total:{10}}" + f"${(bill + tip_20):.2f}|")
